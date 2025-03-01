@@ -61,6 +61,7 @@ class IsaacVecEnv:
                 printed. Defaults to False.
         """
         task_config = load_task_config(env_name)
+        sim_device_id = sim_device_id if sim_device_id is not None else -1
         sim_device = f"cuda:{sim_device_id}" if sim_device_id >= 0 else "cpu"
         self.device = sim_device
         isaac_task = isaacgym_task_map[env_name]
