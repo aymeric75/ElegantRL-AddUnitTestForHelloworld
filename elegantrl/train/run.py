@@ -173,6 +173,9 @@ class PipeWorker:
         torch.set_grad_enabled(False)
         gpu_id = args.learner_gpus
 
+        print("IN PIPEWORKER")
+        print("GPU ID is ".format(str(gpu_id)))
+
         '''init'''
         env = build_env(args.env, args.env_func, args.env_args)
         agent = init_agent(args, gpu_id, env)
