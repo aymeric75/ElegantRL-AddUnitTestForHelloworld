@@ -76,10 +76,15 @@ class Arguments:
         torch.set_num_threads(self.thread_num)
         torch.set_default_dtype(torch.float32)
 
+        print("self.thread_num")
+        print(self.thread_num)
+
         '''auto set'''
         if self.cwd is None:
             self.cwd = f'./{self.env_name}_{self.agent_class.__name__[5:]}_{self.learner_gpus}'
 
+        print(self.cwd)
+        
         '''remove history'''
         if self.if_remove is None:
             self.if_remove = bool(input(f"| Arguments PRESS 'y' to REMOVE: {self.cwd}? ") == 'y')
