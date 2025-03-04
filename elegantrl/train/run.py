@@ -13,10 +13,10 @@ from elegantrl.train.replay_buffer import ReplayBuffer, ReplayBufferList
 
 
 def init_agent(args: Arguments, gpu_id: int, env=None) -> AgentBase:
-    agent = args.agent_class(args.net_dim, args.state_dim, args.action_dim, gpu_id=gpu_id, args=args)
-    agent.save_or_load_agent(args.cwd, if_save=False)
 
     print("initialized agent with id: {}".format(str(gpu_id)))
+    agent = args.agent_class(args.net_dim, args.state_dim, args.action_dim, gpu_id=gpu_id, args=args)
+    agent.save_or_load_agent(args.cwd, if_save=False)
 
     if env is not None:
         '''assign `agent.states` for exploration'''
